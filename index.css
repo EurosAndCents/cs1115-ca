@@ -1,0 +1,71 @@
+body {
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+    grid-template-areas: 
+        "top"
+        "mid"
+        "bottom"
+    ;
+
+    & header {
+        grid-area: top;
+    }
+    & main {
+        grid-area: mid;
+    }
+    & footer {
+        grid-area: bottom;
+    }
+}
+
+header {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        "intro"
+        "mid"
+    ;
+
+    padding: 1em 1em;
+
+    color: var(--colour-dark);
+
+    & h1 {
+        grid-area: intro;
+
+        text-align: center;
+        font-size: 1.4em;
+        font-weight: normal;
+        font-family: 'Azeret Mono', 'Courier New', Courier, monospace;
+
+        & span {
+            color: #4EC9B0; /* python type syntax highlight */
+        }
+        & span[lang="ga"] {
+            color: var(--colour-accent); /* python string syntax highlight */
+        }
+    }
+
+    & figure {
+        grid-area: mid;
+
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+
+        & figcaption {
+            width: 30%;
+        }
+    }
+
+    background-color: var(--colour-light-base);
+    background-image: url("img/bckg.png");
+    background-repeat: no-repeat;
+    background-size: 100vw 50vh;
+    background-position: center bottom;
+}
+
+main {
+    background-color: var(--colour-light-dark);
+}
