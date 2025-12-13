@@ -22,7 +22,7 @@
     --colour-light-base: #FAF3E1; /* light background, sections/cards, etc. */
     --colour-secondary: #1F4E5F; /* rarely used probably */
     --colour-highlight: #8ABFBF; /* transition from header to main, other highlights/text */
-    --colour-light-highlight: hsl(180, 29%, 85%); /* text for nav :D */
+    --colour-light-highlight: #cee4e4; /* text for nav :D */
 }
 
 * {
@@ -31,7 +31,7 @@
 }
 
 body {
-    min-height: 120vh;
+    min-height: calc(100% + 120vh);
 
     background-color: var(--colour-light-base);
 }
