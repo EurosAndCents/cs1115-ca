@@ -1,6 +1,6 @@
 body {
     display: grid;
-    grid-template-rows: 1fr auto auto;
+    grid-template-rows: auto 1fr auto;
     grid-template-areas: 
         "top"
         "mid"
@@ -18,20 +18,6 @@ body {
     }
 }
 
-/* https://www.w3schools.com/css/css3_animations.asp */
-@keyframes coding_underscore {
-    from {opacity: 100%;}
-    to {opacity: 0%;}
-}
-
-/* https://stackoverflow.com/questions/13887889/css-animation-delay-in-repeating */
-@keyframes coding_underscore_hidden {
-    0% {opacity: 1}
-    50% {opacity: 1}
-    50.1% {opacity: 0}
-    100% {opacity: 0}
-}
-
 header {
     display: grid;
     grid-template-rows: auto 1fr;
@@ -40,6 +26,7 @@ header {
         "mid"
     ;
 
+    min-height: 800px;
     padding: 1em 1em;
 
     color: var(--colour-dark);
@@ -58,6 +45,13 @@ header {
         & span[lang="ga"] {
             color: var(--colour-accent); /* python string syntax highlight */
         }
+        & img {
+            height: 60%;
+        }
+    }
+    & a {
+        text-decoration: underline;
+        color: whitesmoke;
     }
 
     background-color: var(--colour-light-base);
@@ -67,7 +61,20 @@ header {
     background-position: center bottom;
 }
 
-.intro {
+/* att: https://www.w3schools.com/css/css3_animations.asp */
+@keyframes coding_underscore {
+    from {opacity: 100%;}
+    to {opacity: 0%;}
+}
+/* att: https://stackoverflow.com/questions/13887889/css-animation-delay-in-repeating */
+@keyframes coding_underscore_hidden {
+    0% {opacity: 1}
+    50% {opacity: 1}
+    50.1% {opacity: 0}
+    100% {opacity: 0}
+}
+
+#top {
     grid-area: mid;
 
     display: flex;
@@ -106,34 +113,60 @@ header {
             }
         }
 
-        & li:last-child span:last-child::after { /* typing animation!! */
+        /* att: https://www.youtube.com/watch?v=dIUOWdwwZBw */
+        & li:last-child span:last-child::after { /* typing animation at the ned of the last piece of text!! */
             content: "_";
 
             animation:
                 coding_underscore 1ms linear infinite,
                 coding_underscore_hidden 1s linear infinite;
         }
-        /* & span:first-child {
-            grid-area: caret-one;
-            margin-right: 1em;
-        }
-        & span:nth-child(2) {
-            grid-area: console-one;
-        }
-        span:nth-child(3) {
-            grid-area: caret-two;
-            margin-right: 1em;
-        }
-        & span:nth-child(4) {
-            grid-area: console-two;
-        }
-        & span:last-child::after {
-            content: "_";
+    }
+}
 
-            animation: 
-                coding_underscore 1ms linear infinite, 
-                coding_underscore_hidden 1s linear infinite;
-        } */
+nav {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1em;
+
+    /* & a:first-child {
+        margin-left: auto;
+    }
+    & a:last-child {
+        margin-right: 1em;
+    } */
+    
+    & a {
+        color: var(--colour-light-highlight);
+
+        position: relative;
+
+        font-size: 0.8em;
+        text-decoration: none;
+
+        /* att: https://www.youtube.com/watch?v=dIUOWdwwZBw */
+        &::after {
+            content: "";
+
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            height: 0.1em;
+            width: 0%;
+
+            /* att: https://www.w3schools.com/css/css3_gradients.asp */
+            background-image: linear-gradient(to right, var(--colour-light-highlight), var(--colour-highlight));
+            
+            transition: width 0.5s;
+        }
+        &:hover::after {
+            width: 100%;
+            
+            transition: width 0.5s;
+        }
     }
 }
 

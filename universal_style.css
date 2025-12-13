@@ -1,10 +1,10 @@
-/* https://fonts.google.com/specimen/Azeret+Mono */
+/* att: https://fonts.google.com/specimen/Azeret+Mono */
 @font-face {
     font-family: 'Azeret Mono';
     src: url('/fonts/Azeret_Mono/AzeretMono-VariableFont_wght.ttf');
 }
 
-/* https://fonts.google.com/specimen/Asap */
+/* att: https://fonts.google.com/specimen/Asap */
 @font-face {
     font-family: 'Asap';
     src: url('/fonts/Asap/Asap-VariableFont_wdth\,wght.ttf');
@@ -14,7 +14,7 @@
     font-size: 35px;
     font-family: 'Asap', Arial, Helvetica, sans-serif;
 
-    /* https://colorhunt.co/palette/faf3e1f5e7c6ff6d1f222222, found highlight/secondary myself */
+    /* att: https://colorhunt.co/palette/faf3e1f5e7c6ff6d1f222222 for first 4 colours */
     --colour-dark: #222222; /* main text, pops, etc. */
     --colour-light-dark: #4B4B4A; /* transition from header to main */
     --colour-accent: #FF6D1F; /* buttons, etc. */
@@ -22,6 +22,7 @@
     --colour-light-base: #FAF3E1; /* light background, sections/cards, etc. */
     --colour-secondary: #1F4E5F; /* rarely used probably */
     --colour-highlight: #8ABFBF; /* transition from header to main, other highlights/text */
+    --colour-light-highlight: hsl(180, 29%, 85%); /* text for nav :D */
 }
 
 * {
