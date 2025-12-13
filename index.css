@@ -18,6 +18,20 @@ body {
     }
 }
 
+/* https://www.w3schools.com/css/css3_animations.asp */
+@keyframes coding_underscore {
+    from {opacity: 100%;}
+    to {opacity: 0%;}
+}
+
+/* https://stackoverflow.com/questions/13887889/css-animation-delay-in-repeating */
+@keyframes coding_underscore_hidden {
+    0% {opacity: 1}
+    50% {opacity: 1}
+    50.1% {opacity: 0}
+    100% {opacity: 0}
+}
+
 header {
     display: grid;
     grid-template-rows: auto 1fr;
@@ -46,24 +60,81 @@ header {
         }
     }
 
-    & figure {
-        grid-area: mid;
-
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
-        justify-content: center;
-
-        & figcaption {
-            width: 30%;
-        }
-    }
-
     background-color: var(--colour-light-base);
     background-image: url("img/bckg.png");
     background-repeat: no-repeat;
     background-size: 100vw 50vh;
     background-position: center bottom;
+}
+
+.intro {
+    grid-area: mid;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+
+    & ul { /* console */
+        align-self: start;
+        margin-top: 150px;
+
+        color: white;
+        font-size: 0.6em;
+        font-family: 'Consolas', 'Courier New', Courier, monospace;
+        font-weight: normal;
+
+        width: 30%;
+        padding: 1em;
+
+        background-color: var(--colour-dark);
+        border-radius: 10px;
+
+        & li {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-areas: 
+                "caret console"
+            ;
+
+            & span:first-child {
+                grid-area: caret;
+                margin-right: 1em;
+            }
+            & span:last-child {
+                grid-area: console;
+            }
+        }
+
+        & li:last-child span:last-child::after { /* typing animation!! */
+            content: "_";
+
+            animation:
+                coding_underscore 1ms linear infinite,
+                coding_underscore_hidden 1s linear infinite;
+        }
+        /* & span:first-child {
+            grid-area: caret-one;
+            margin-right: 1em;
+        }
+        & span:nth-child(2) {
+            grid-area: console-one;
+        }
+        span:nth-child(3) {
+            grid-area: caret-two;
+            margin-right: 1em;
+        }
+        & span:nth-child(4) {
+            grid-area: console-two;
+        }
+        & span:last-child::after {
+            content: "_";
+
+            animation: 
+                coding_underscore 1ms linear infinite, 
+                coding_underscore_hidden 1s linear infinite;
+        } */
+    }
 }
 
 main {
