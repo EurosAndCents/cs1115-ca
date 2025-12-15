@@ -39,10 +39,12 @@ header {
         font-weight: normal;
         font-family: 'Azeret Mono', 'Courier New', Courier, monospace;
 
-        & span {
+        & i {
+            text-decoration: none;
+            font-style: normal;
             color: #4EC9B0; /* python type syntax highlight */
         }
-        & span[lang="ga"] {
+        & i[lang="ga"] {
             color: var(--colour-accent); /* python string syntax highlight */
         }
         & img {
@@ -57,15 +59,15 @@ header {
     background-color: var(--colour-light-base);
     background-image: url("img/bckg.png");
     background-repeat: no-repeat;
-    background-size: 100vw 50vh;
+    background-size: 100%;
     background-position: center bottom;
 }
 
 /* att: https://www.w3schools.com/css/css3_animations.asp */
 @keyframes coding_underscore {
     0% {opacity: 1}
-    50% {opacity: 1}
-    50.1% {opacity: 0}
+    49% {opacity: 1}
+    50% {opacity: 0}
     100% {opacity: 0}
 }
 
@@ -73,13 +75,20 @@ header {
     grid-area: mid;
 
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
 
     & ul { /* console */
         align-self: start;
         margin-top: 150px;
+
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: 
+            "caret1 console1"
+            "caret2 console2"
+        ;
 
         color: white;
         font-size: 0.6em;
@@ -92,24 +101,26 @@ header {
         background-color: var(--colour-dark);
         border-radius: 10px;
 
-        & li {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            grid-template-areas: 
-                "caret console"
-            ;
-
-            & span:first-child {
-                grid-area: caret;
-                margin-right: 1em;
-            }
-            & span:last-child {
-                grid-area: console;
-            }
+        & li::marker {
+            content: "";
+        }
+        & li:first-child {
+            grid-area: caret1;
+            margin-right: 1em;
+        }
+        & li:nth-child(2) {
+            grid-area: console1;
+        }
+        & li:nth-child(3) {
+            grid-area: caret2;
+            margin-right: 1em;
+        }
+        & li:last-child {
+            grid-area: console2;
         }
 
         /* att: https://www.youtube.com/watch?v=dIUOWdwwZBw */
-        & li:last-child span:last-child::after { /* typing animation at the ned of the last piece of text!! */
+        & li:last-child::after { /* typing animation at the ned of the last piece of text!! */
             content: "_";
 
             animation:
@@ -124,13 +135,6 @@ nav {
     align-items: center;
     justify-content: space-around;
     gap: 1em;
-
-    /* & a:first-child {
-        margin-left: auto;
-    }
-    & a:last-child {
-        margin-right: 1em;
-    } */
     
     & a {
         color: var(--colour-light-highlight);
@@ -139,28 +143,6 @@ nav {
 
         font-size: 0.8em;
         text-decoration: none;
-
-        /* att: https://www.youtube.com/watch?v=dIUOWdwwZBw */
-        &::after {
-            content: "";
-
-            position: absolute;
-            bottom: 0;
-            left: 0;
-
-            height: 0.1em;
-            width: 0%;
-
-            /* att: https://www.w3schools.com/css/css3_gradients.asp */
-            background-image: linear-gradient(to right, var(--colour-light-highlight), var(--colour-highlight));
-            
-            transition: width 0.5s;
-        }
-        &:hover::after {
-            width: 100%;
-            
-            transition: width 0.5s;
-        }
     }
 }
 
