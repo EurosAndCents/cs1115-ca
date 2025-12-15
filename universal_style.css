@@ -17,7 +17,8 @@
     /* att: https://colorhunt.co/palette/faf3e1f5e7c6ff6d1f222222 for first 4 colours */
     --colour-dark: #222222; /* main text, pops, etc. */
     --colour-light-dark: #4B4B4A; /* transition from header to main */
-    --colour-accent: #FF6D1F; /* buttons, etc. */
+    --colour-accent: #FF6D1F; /* darker buttons ig, etc. */
+    --colour-pale-accent: #DE7A44; /* BUTTONS!!!!!!! */
     --colour-base: #F5E7C6; /* header background, etc. */
     --colour-light-base: #FAF3E1; /* light background, sections/cards, etc. */
     --colour-secondary: #1F4E5F; /* rarely used probably */

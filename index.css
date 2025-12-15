@@ -140,9 +140,30 @@ nav {
         color: var(--colour-light-highlight);
 
         position: relative;
+        padding: 0.2em 0.3em;
 
         font-size: 0.8em;
         text-decoration: none;
+
+        background-color: var(--colour-pale-accent);
+        border-radius: 5px;
+        
+        /* att: https://www.w3schools.com/cssref/css3_pr_transform.php */
+        transition: transform 0.2s ease;
+        &:hover {transition: transform 0.2s ease;}
+
+        &:nth-child(odd) {
+            transform: rotateZ(3deg);
+            &:hover {
+                transform: rotateZ(-3deg);
+            }
+        }
+        &:nth-child(even) {
+            transform: rotateZ(-3deg);
+            &:hover {
+                transform: rotateZ(3deg);
+            }
+        }
     }
 }
 
