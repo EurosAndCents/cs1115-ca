@@ -58,7 +58,7 @@ main {
     }
 
     /* console */
-    table {
+    & table {
         grid-area: hobbies;
 
         margin: 50px 3em 0 3em;
