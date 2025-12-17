@@ -1,0 +1,72 @@
+body {
+    background-color: var(--colour-light-base);
+
+    & h1 {
+        color: var(--colour-dark);
+        margin-bottom: 50px;
+    }
+}
+
+nav {
+    padding-bottom: 400px;
+    padding-top: 50px;
+    margin-bottom: 50px;
+
+    background-color: var(--colour-dark);
+    background-image: url("img/bckg.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: bottom;
+}
+
+#experience {
+    grid-area: experience;
+
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+
+    & article {
+        margin: 0 4em 50px 4em;
+
+        & h2 {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: flex-end;
+            justify-content: flex-start;
+
+            font-weight: normal;
+            border-bottom: var(--colour-secondary) solid 3px;
+
+            & span:not(.title-date) {
+                font-size: 0.8em;
+                color: var(--colour-secondary);
+            }
+            & .title-date {
+                font-size: 0.5em;
+                color: var(--colour-secondary);
+            }
+            & span:last-child {
+                margin-left: auto;
+            }
+        }
+        & p {
+            color: var(--colour-dark);
+            font-size: 0.65em;
+        }
+        & p+p {
+            margin-top: 0.2em;
+        }
+    }
+    & article:nth-child(even) {
+        align-self: flex-start;
+        justify-self: flex-start;
+        text-align: left;
+    }
+    & article:nth-child(odd) {
+        align-self: flex-end;
+        justify-self: flex-end;
+        text-align: right;
+    }
+}

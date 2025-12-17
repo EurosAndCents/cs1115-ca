@@ -65,7 +65,7 @@ nav {
     
     /* button stylings */
     & a {
-        color: var(--colour-light-highlight);
+        color: white;
 
         position: relative;
         padding: 0.2em 0.3em;
