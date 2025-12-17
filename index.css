@@ -1,35 +1,17 @@
 body {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas: 
-        "top"
-        "mid"
-        "bottom"
-    ;
-
     background-color: var(--colour-light-dark);
-
-    /* grid areas */
-    & header {
-        grid-area: top;
-    }
-    & main {
-        grid-area: mid;
-    }
-    & footer {
-        grid-area: bottom;
-    }
 }
 
 header {
     display: grid;
     grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
     grid-template-areas: 
         "intro"
         "mid"
     ;
 
-    padding: 1em 1em;
+    padding: 1rem max(1rem, 1%);
 
     background-color: var(--colour-light-base);
     color: var(--colour-dark);
@@ -75,13 +57,13 @@ header {
         grid-template-columns: auto 1fr;
 
         color: white;
-        font-size: 0.6em;
+        font-size: 0.6rem;
         font-family: var(--font-terminal);
         font-weight: normal;
 
         width: 30%;
         min-width: 300px;
-        padding: 1em;
+        padding: 1rem;
 
         background-color: var(--colour-dark);
         border-radius: 10px;
@@ -90,7 +72,7 @@ header {
             content: "";
         }
         & li:nth-child(odd) {
-            margin-right: 1em;
+            margin-right: 1rem;
         }
         & span { /* typing animation at the end of the last piece of text!! */
             animation: console_underscore 1s linear infinite;
@@ -102,27 +84,27 @@ main {
     background-color: var(--colour-light-dark);
 
     & h1 {
+        margin-top: 100px;
+        margin-bottom: 50px;
+
         color: var(--colour-light-base);
     }
 }
 
 #intro {
     display: grid;
-    grid-template-rows: auto 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
     grid-template-areas:
-        "title"
         "article1"
         "article2"
     ;
-
-    margin-top: 100px;
-
     /* grid areas */
-    & h1 {grid-area: title;}
     & article:not(:last-child) {
         grid-area: article1;
         
         display: grid;
+        grid-template-rows: 1fr;
         grid-template-columns: auto 1fr;
         grid-template-areas: "picture caption";
 
@@ -134,6 +116,7 @@ main {
         grid-area: article2;
         
         display: grid;
+        grid-template-rows: 1fr;
         grid-template-columns: 1fr auto;
         grid-template-areas: "caption picture";
 
@@ -144,7 +127,7 @@ main {
 
     /* general article styling */
     & article {
-        margin: 30px 10em;
+        margin: 30px 10rem;
 
         & p {
             grid-area: caption;
@@ -165,11 +148,6 @@ main {
         & figure {
             grid-area: picture;
 
-            display: flex;
-            flex-flow: column nowrap;
-            align-items: center;
-            justify-content: center;
-
             margin: 0 0.2em;
             z-index: 2;
 
@@ -184,8 +162,9 @@ main {
             }
 
             & figcaption {
-                padding: 0.2em;
+                padding: 7px;
                 
+                text-align: center;
                 font-family: var(--font-monospace);
                 color: var(--colour-dark);
                 font-size: 0.5em;
@@ -195,11 +174,48 @@ main {
                 min-width: 200px;
                 height: auto;
 
-                padding: 0.2em;
+                padding: 7px;
                 padding-bottom: 0;
 
                 border-bottom: var(--colour-light-dark) solid 1px;
             }
         }
+    }
+}
+
+@media(max-width: 1000px) {
+    header {
+        height: 500px;
+    }
+    #top {
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        margin-top: 50px;
+
+        & ul {
+            margin: 0;
+            padding: 1em;
+            font-size: 0.8rem;
+        }
+        & figure {
+            flex: 1;
+
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: flex-start;
+            justify-content: center;
+
+            margin: 0;
+
+            & img {
+                margin: 0;
+                width: 60%;
+                min-width: 100px;
+            }
+        }
+    }
+    #intro article {
+        margin: 30px 2rem;
     }
 }

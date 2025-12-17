@@ -91,12 +91,11 @@ figure {
 
 #hobbies {
     display: grid;
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: auto auto;
     grid-template-columns: 1fr auto;
     grid-template-areas: 
         "title title"
         "hobbies aside"
-        "experience experience"
     ;
 
     margin-bottom: 100px;
@@ -183,6 +182,32 @@ figure {
             height: 10px;
             margin-left: 1em;
             background-color: var(--colour-secondary);
+        }
+    }
+}
+
+@media(max-width: 1000px) {
+    nav {
+        padding-bottom: 250px;
+    }
+    #hobbies {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+            "hobbies"
+            "aside"
+        ;
+        & aside {
+            margin-top: 25px;
+            margin-left: 3em;
+
+            & h2 {
+                text-align: center;
+            }
+            & figure {
+                margin: 0 auto;
+            }
         }
     }
 }

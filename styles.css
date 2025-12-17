@@ -93,3 +93,16 @@ nav {
         }
     }
 }
+
+@media(max-width: 1200px) {
+    /* SMALL SCREEN */
+    :root {
+        font-size: 30px;
+    }
+}
+@media(max-width: 1000px) {
+    /* MOBILE */
+    :root {
+        font-size: 25px;
+    }
+}

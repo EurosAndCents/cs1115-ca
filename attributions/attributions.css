@@ -5,6 +5,10 @@ body {
         color: var(--colour-light-base);
         margin-bottom: 50px;
     }
+    & a {
+        text-decoration: underline;
+        color: white;
+    }
 }
 
 nav {
@@ -18,6 +22,7 @@ nav {
     background-size: 100%;
 
     & a {
+        text-decoration: none;
         color: white;
         background-color: var(--colour-highlight);
         &:hover {
@@ -64,9 +69,22 @@ main {
         & span { /* typing animation at the end of the last piece of text!! */
             animation: console_underscore 1s linear infinite;
         }
-        & a {
-            text-decoration: underline;
-            color: white;
+    }
+    & section {
+        width: 100%;
+        margin-top: 25px;
+        padding-top: 10px;
+        background-color: var(--colour-dark);
+        & p {
+            text-align: center;
+            padding-bottom: 10px;
+            color: var(--colour-light);
         }
+    }
+}
+
+@media(max-width:1000px) {
+    nav {
+        padding-bottom: 200px;
     }
 }
