@@ -7,6 +7,8 @@ body {
         "bottom"
     ;
 
+    background-color: var(--colour-light-dark);
+
     & header {
         grid-area: top;
     }
@@ -28,6 +30,7 @@ header {
 
     padding: 1em 1em;
 
+    background-color: var(--colour-light-base);
     color: var(--colour-dark);
 
     & h1 {
@@ -76,7 +79,7 @@ header {
 
         color: white;
         font-size: 0.6em;
-        font-family: 'Consolas', 'Courier New', Courier, monospace;
+        font-family: var(--font-terminal);
         font-weight: normal;
 
         width: 30%;
@@ -103,12 +106,8 @@ header {
         & li:last-child {
             grid-area: console2;
         }
-
         & span { /* typing animation at the end of the last piece of text!! */
-            content: "_";
-
-            animation:
-                console_underscore 1s linear infinite;
+            animation: console_underscore 1s linear infinite;
         }
     }
 }
@@ -163,6 +162,7 @@ main {
 
         & p {
             grid-area: caption;
+            z-index: 1;
 
             margin: 0 0.2em;
             transform: rotate(-2deg);
@@ -185,14 +185,22 @@ main {
             justify-content: center;
 
             margin: 0 0.2em;
+            z-index: 2;
 
             background-color: var(--colour-light-base);
             border-radius: 5px 5px 0 0;
 
+            /* zoom!! */
+            transition: transform 0.1s ease;
+            &:has(img:hover) {
+                transform: scale(1.2);
+                transition: transform 0.1s ease;
+            }
+
             & figcaption {
                 padding: 0.2em;
                 
-                font-family: 'Azeret Mono', 'Courier New', Courier, monospace;
+                font-family: var(--font-monospace);
                 color: var(--colour-dark);
                 font-size: 0.5em;
             }
@@ -205,12 +213,6 @@ main {
                 padding-bottom: 0;
 
                 border-bottom: var(--colour-light-dark) solid 1px;
-
-                transition: transform 0.1s ease;
-            }
-            & img:hover {
-                transform: scale(1.2);
-                transition: transform 0.1s ease;
             }
         }
     }

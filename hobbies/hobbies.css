@@ -1,0 +1,96 @@
+body {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        "top"
+        "content"
+    ;
+
+    background-color: var(--colour-dark);
+
+    /* grid areas */
+    & nav {
+        grid-area: top;
+    }
+    & main {
+        grid-area: content;
+    }
+}
+
+nav {
+    padding-top: 50px;
+    padding-bottom: 450px;
+
+    background-color: var(--colour-light-dark);
+    background-image: url('img/bckg.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+
+    & a {
+        color: white;
+        background-color: var(--colour-highlight);
+        &:hover {
+            background-color: var(--colour-secondary)
+        }
+    }
+}
+
+main {    
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: 
+        "title title"
+        "hobbies aside"
+    ;
+
+    background-color: var(--colour-dark);
+    background-image: url("img/pattern.png");
+
+    /* grid areas */
+    & h1 {
+        grid-area: title;
+        color: white;
+    }
+    & aside {
+        grid-area: aside;
+    }
+
+    /* console */
+    table {
+        grid-area: hobbies;
+
+        margin: 50px 3em 0 3em;
+
+        border-radius: 5px;
+        border-collapse: collapse; /* att: https://www.w3schools.com/html/html_table_borders.asp */
+        background-color: var(--colour-light-base);
+
+        font-family: var(--font-terminal);
+
+        /* table styling */
+        & tr * {
+            padding-left: 0.2em;
+        }
+        & tr:first-child * {
+            border-bottom: var(--colour-light) dotted 0.1em;
+        }
+        & tr *:first-child {
+            padding-right: 1em;
+        }
+        & th {
+            font-weight: normal;
+            text-align: left;
+            color: var(--colour-dark);
+        }
+        & td {
+            color: var(--colour-light-dark);
+            &:not(:first-child)::before {content: "| ";} /* terminal table pipe style */
+        }
+        & a {
+            text-decoration: underline;
+            color: var(--colour-dark);
+        }
+    }
+}

@@ -11,12 +11,10 @@
 }
 
 :root {
-    font-size: 35px;
-    font-family: 'Asap', Arial, Helvetica, sans-serif;
-
     /* att: https://colorhunt.co/palette/faf3e1f5e7c6ff6d1f222222 for first 4 colours */
     --colour-dark: #222222; /* main text, pops, etc. */
     --colour-light-dark: #4B4B4A; /* transition from header to main */
+    --colour-light: #A1A1A1; /* th */
     --colour-accent: #FF6D1F; /* darker buttons ig, etc. */
     --colour-pale-accent: #DE7A44; /* BUTTONS!!!!!!! */
     --colour-base: #F5E7C6; /* header background, etc. */
@@ -24,17 +22,18 @@
     --colour-secondary: #1F4E5F; /* rarely used probably */
     --colour-highlight: #8ABFBF; /* transition from header to main, other highlights/text */
     --colour-light-highlight: #cee4e4; /* text for nav :D */
+
+    --font-std: 'Asap', Arial, Helvetica, sans-serif;
+    --font-monospace: 'Azeret Mono', 'Courier New', Courier, monospace;
+    --font-terminal: 'Consolas', 'Courier New', Courier, monospace;
+
+    font-family: 'Asap', Arial, Helvetica, sans-serif;
+    font-size: 35px;
 }
 
 * {
     padding: 0;
     margin: 0;
-}
-
-body {
-    min-height: calc(100% + 120vh);
-
-    background-color: var(--colour-light-base);
 }
 
 /* title stylings */
@@ -53,6 +52,7 @@ h1 {
     text-decoration: none;
     font-style: normal;
     color: var(--colour-accent); /* python string syntax highlight */
+    border-bottom: var(--colour-accent) dashed 0.1em;
 }
 
 nav {
