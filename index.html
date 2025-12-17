@@ -1,28 +1,28 @@
 <!DOCTYPE html>
+<!-- https://www.pluralsight.com/resources/blog/guides/how-to-hide-text-from-screen-readers -->
+<!-- aria-hidden="true" was used sometimes as there is a lot of unnecessary text on the screen :D-->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="universal_style.css" />
+    <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="index.css" />
     <title>Páraic Kelly</title>
 </head>
 <body>
     <header>
-        <h1>intro_h1: <i>str</i> = <i lang="ga">"dia dhuit!"</i></h1>
+        <h1>welcome_header: <i class="header-python-type" aria-hidden="true">str</i> = <i lang="ga" class="header-python-string">"dia dhuit!"</i></h1>
         <div id="top">
             <ul>
-                <li>
-                    >
-                </li>
+                <li aria-hidden="true">></li>
                 <li>
                     my name is p&aacute;raic kelly and im a first year computer science student in university college cork
                 </li>
-                <li>
-                    >
-                </li>
+                <li aria-hidden="true">></li>
                 <li>
                     welcome to my resum&eacute;!!! you can contact me on <a href="https://www.linkedin.com/in/p%C3%A1raic-kelly-b36a9a375/">linkedin</a> &#60;3
+                    <span aria-hidden="true">_</span>
                 </li>
             </ul>
             <figure>
@@ -34,9 +34,41 @@
         <nav>
             <a href="#intro">who are you???</a>
             <a href="#hobbies">what i do</a>
-            <a href="#experience">uhh</a>
-            <a href="#other">ummm</a>
+            <a href="#experience">uhhhhh</a>
+            <a href="#other">attributions</a>
         </nav>
+        <section id="intro">
+            <h1>intro_header: <i class="header-python-type" aria-hidden="true">str</i> = <i lang="ga" class="header-python-string">"who are you???"</i></h1>
+            
+            <!-- Niall, me -->
+            <article>
+                <figure>
+                    <img src="img/twin.png" alt="A picture of me and my twin making a heart with our hands">
+                    <figcaption>
+                        ME WITH MY TWIN BROTHER
+                    </figcaption>
+                </figure>
+                <p>                        
+                    I'm a 19 year old Computer Science student in Cork 
+                    with a passion for music, games, and technology.
+                    I grew up with a twin, two brothers, and two sisters!!
+                </p>
+            </article>
+
+            <!-- Barretstown, traits -->
+            <article>
+                <p>
+                    I'm a creative person who thrives in chaos having grown up
+                    in a big family.
+                    I also find myself being quite team-focused when solving problems,
+                    making sure to communicate effectively and often.
+                </p>
+                <figure>
+                    <img src="img/barretstown.png" alt="A picture of me with a red nose leading a camp activity in Barretstown">
+                    <figcaption>BARRETSTOWN CAMP LEADERSHIP</figcaption>
+                </figure>
+            </article>
+        </section>
     </main>
 </body>
 </html>

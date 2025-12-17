@@ -26,30 +26,12 @@ header {
         "mid"
     ;
 
-    min-height: 800px;
     padding: 1em 1em;
 
     color: var(--colour-dark);
 
     & h1 {
         grid-area: intro;
-
-        text-align: center;
-        font-size: 1.4em;
-        font-weight: normal;
-        font-family: 'Azeret Mono', 'Courier New', Courier, monospace;
-
-        & i {
-            text-decoration: none;
-            font-style: normal;
-            color: #4EC9B0; /* python type syntax highlight */
-        }
-        & i[lang="ga"] {
-            color: var(--colour-accent); /* python string syntax highlight */
-        }
-        & img {
-            height: 60%;
-        }
     }
     & a {
         text-decoration: underline;
@@ -64,13 +46,12 @@ header {
 }
 
 /* att: https://www.w3schools.com/css/css3_animations.asp */
-@keyframes coding_underscore {
+@keyframes console_underscore {
     0% {opacity: 1}
     49% {opacity: 1}
     50% {opacity: 0}
     100% {opacity: 0}
 }
-
 #top {
     grid-area: mid;
 
@@ -79,7 +60,10 @@ header {
     align-items: center;
     justify-content: center;
 
-    & ul { /* console */
+    min-height: 800px;
+
+    /* console */
+    & ul {
         align-self: start;
         margin-top: 150px;
 
@@ -96,6 +80,7 @@ header {
         font-weight: normal;
 
         width: 30%;
+        min-width: 300px;
         padding: 1em;
 
         background-color: var(--colour-dark);
@@ -119,54 +104,114 @@ header {
             grid-area: console2;
         }
 
-        /* att: https://www.youtube.com/watch?v=dIUOWdwwZBw */
-        & li:last-child::after { /* typing animation at the ned of the last piece of text!! */
+        & span { /* typing animation at the end of the last piece of text!! */
             content: "_";
 
             animation:
-                coding_underscore 1s linear infinite;
-        }
-    }
-}
-
-nav {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-around;
-    gap: 1em;
-    
-    & a {
-        color: var(--colour-light-highlight);
-
-        position: relative;
-        padding: 0.2em 0.3em;
-
-        font-size: 0.8em;
-        text-decoration: none;
-
-        background-color: var(--colour-pale-accent);
-        border-radius: 5px;
-        
-        /* att: https://www.w3schools.com/cssref/css3_pr_transform.php */
-        transition: transform 0.2s ease;
-        &:hover {transition: transform 0.2s ease;}
-
-        &:nth-child(odd) {
-            transform: rotateZ(3deg);
-            &:hover {
-                transform: rotateZ(-3deg);
-            }
-        }
-        &:nth-child(even) {
-            transform: rotateZ(-3deg);
-            &:hover {
-                transform: rotateZ(3deg);
-            }
+                console_underscore 1s linear infinite;
         }
     }
 }
 
 main {
     background-color: var(--colour-light-dark);
+
+    & h1 {
+        color: white;
+    }
+}
+
+#intro {
+    display: grid;
+    grid-template-rows: auto 1fr 1fr;
+    grid-template-areas:
+        "title"
+        "article1"
+        "article2"
+    ;
+
+    margin-top: 100px;
+
+    /* grid areas */
+    & h1 {grid-area: title;}
+    & article:not(:last-child) {
+        grid-area: article1;
+        
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: "picture caption";
+
+        & p {
+            text-align: left;
+        }
+    }
+    & article:last-child {
+        grid-area: article2;
+        
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas: "caption picture";
+
+        & p {
+            text-align: right;
+        }
+    }
+
+    /* general article styling */
+    & article {
+        margin: 30px 10em;
+
+        & p {
+            grid-area: caption;
+
+            margin: 0 0.2em;
+            transform: rotate(-2deg);
+
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+
+            color: var(--colour-light-base);
+            font-size: 0.7em;
+        }
+
+        /* polaroid */
+        & figure {
+            grid-area: picture;
+
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 0.2em;
+
+            background-color: var(--colour-light-base);
+            border-radius: 5px 5px 0 0;
+
+            & figcaption {
+                padding: 0.2em;
+                
+                font-family: 'Azeret Mono', 'Courier New', Courier, monospace;
+                color: var(--colour-dark);
+                font-size: 0.5em;
+            }
+            & img {
+                width: 9em;
+                min-width: 200px;
+                height: auto;
+
+                padding: 0.2em;
+                padding-bottom: 0;
+
+                border-bottom: var(--colour-light-dark) solid 1px;
+
+                transition: transform 0.1s ease;
+            }
+            & img:hover {
+                transform: scale(1.2);
+                transition: transform 0.1s ease;
+            }
+        }
+    }
 }

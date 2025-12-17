@@ -1,0 +1,95 @@
+/* att: https://fonts.google.com/specimen/Azeret+Mono */
+@font-face {
+    font-family: 'Azeret Mono';
+    src: url('/fonts/Azeret_Mono/AzeretMono.ttf') format('truetype');
+}
+
+/* att: https://fonts.google.com/specimen/Asap */
+@font-face {
+    font-family: 'Asap';
+    src: url('/fonts/Asap/Asap.ttf') format('truetype');
+}
+
+:root {
+    font-size: 35px;
+    font-family: 'Asap', Arial, Helvetica, sans-serif;
+
+    /* att: https://colorhunt.co/palette/faf3e1f5e7c6ff6d1f222222 for first 4 colours */
+    --colour-dark: #222222; /* main text, pops, etc. */
+    --colour-light-dark: #4B4B4A; /* transition from header to main */
+    --colour-accent: #FF6D1F; /* darker buttons ig, etc. */
+    --colour-pale-accent: #DE7A44; /* BUTTONS!!!!!!! */
+    --colour-base: #F5E7C6; /* header background, etc. */
+    --colour-light-base: #FAF3E1; /* light background, sections/cards, etc. */
+    --colour-secondary: #1F4E5F; /* rarely used probably */
+    --colour-highlight: #8ABFBF; /* transition from header to main, other highlights/text */
+    --colour-light-highlight: #cee4e4; /* text for nav :D */
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-height: calc(100% + 120vh);
+
+    background-color: var(--colour-light-base);
+}
+
+/* title stylings */
+h1 {
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: normal;
+    font-family: 'Azeret Mono', 'Courier New', Courier, monospace;
+}
+.header-python-type {
+    text-decoration: none;
+    font-style: normal;
+    color: #4EC9B0; /* python type syntax highlight */
+}
+.header-python-string {
+    text-decoration: none;
+    font-style: normal;
+    color: var(--colour-accent); /* python string syntax highlight */
+}
+
+nav {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1em;
+    
+    /* button stylings */
+    & a {
+        color: var(--colour-light-highlight);
+
+        position: relative;
+        padding: 0.2em 0.3em;
+
+        font-size: 0.8em;
+        text-decoration: none;
+
+        background-color: var(--colour-pale-accent);
+        border-radius: 5px;
+
+        /* att: https://www.w3schools.com/cssref/css3_pr_transform.php */
+        transition: transform 0.2s ease, background-color 0.2s ease;
+        &:hover {
+            background-color: var(--colour-accent);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        /* making the buttons alternate in rotation!! */
+        &:nth-child(odd) {
+            transform: rotateZ(3deg);
+            &:hover {transform: rotateZ(-3deg) scale(1.02);}
+        }
+        &:nth-child(even) {
+            transform: rotateZ(-3deg);
+            &:hover {transform: rotateZ(3deg) scale(1.02);}
+        }
+    }
+}
