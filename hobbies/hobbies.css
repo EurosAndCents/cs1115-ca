@@ -15,6 +15,11 @@ body {
     & main {
         grid-area: content;
     }
+
+    /* styling */
+    & h1 {
+        color: white;
+    }
 }
 
 nav {
@@ -37,60 +42,137 @@ nav {
 }
 
 main {    
+    background-color: var(--colour-dark);
+    background-image: url("img/pattern.png");
+}
+
+#hobbies {
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
     grid-template-columns: 1fr auto;
     grid-template-areas: 
         "title title"
         "hobbies aside"
+        "experience experience"
     ;
 
-    background-color: var(--colour-dark);
-    background-image: url("img/pattern.png");
+    margin-bottom: 100px;
 
     /* grid areas */
     & h1 {
         grid-area: title;
-        color: white;
     }
     & aside {
         grid-area: aside;
+
+        display: flex;
+        flex-flow: column nowrap;
+
+        margin: 50px 3em 50px 0;
     }
 
-    /* console */
     & table {
         grid-area: hobbies;
 
         margin: 50px 3em 0 3em;
-
-        border-radius: 5px;
         border-collapse: collapse; /* att: https://www.w3schools.com/html/html_table_borders.asp */
-        background-color: var(--colour-light-base);
 
+        color: var(--colour-light-base);
         font-family: var(--font-terminal);
+        font-size: 0.8em;
 
-        /* table styling */
-        & tr * {
-            padding-left: 0.2em;
+        & tr {
+            & th {
+                font-weight: normal;
+                color: var(--colour-highlight);
+                border-bottom: var(--colour-secondary) dashed 3px;
+            }
+            & th,td {
+                padding: 0.5em;
+                &:not(:last-child) {
+                    border-right: var(--colour-secondary) solid 3px;
+                }
+            }
+            & a {
+                color: var(--colour-highlight);
+            }
         }
-        & tr:first-child * {
-            border-bottom: var(--colour-light) dotted 0.1em;
+    }
+
+    & #languages {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "title title"
+            "header1 bar1"
+            "header2 bar2"
+        ;
+
+        margin-bottom: 50px;
+            
+        /* grid areas */
+        & h2 {grid-area: title;}
+        & #english-title {grid-area: header1;}
+        & #english-title+img {grid-area: bar1;}
+        & #irish-title {grid-area: header2;}
+        & #irish-title+img {grid-area: bar2;}
+
+        /* styling */
+        & h2 {
+            color: var(--colour-light-base);
         }
-        & tr *:first-child {
-            padding-right: 1em;
-        }
-        & th {
+        & h3 {
+            color: var(--colour-highlight);
             font-weight: normal;
-            text-align: left;
-            color: var(--colour-dark);
+            font-size: 1em;
         }
-        & td {
-            color: var(--colour-light-dark);
-            &:not(:first-child)::before {content: "| ";} /* terminal table pipe style */
+        & img {
+            margin: auto 0;
+            height: 10px;
+            margin-left: 1em;
+            background-color: var(--colour-secondary);
         }
-        & a {
-            text-decoration: underline;
+    }
+
+    /* polaroid */
+    & figure {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+
+        margin: 0 0.2em;
+        z-index: 2;
+
+        background-color: var(--colour-light-base);
+        border-radius: 5px 5px 0 0;
+
+        /* zoom!! */
+        transform: rotate(-4deg);
+        transition: transform 0.1s ease;
+        &:has(img:hover) {
+            transform: scale(1.2);
+            transition: transform 0.1s ease;
+        }
+
+        & figcaption {
+            padding: 0.2em;
+            
+            font-family: var(--font-monospace);
             color: var(--colour-dark);
+            font-size: 0.5em;
+        }
+        & img {
+            width: 9em;
+            min-width: 200px;
+            height: auto;
+
+            padding: 0.2em;
+            padding-bottom: 0;
+
+            border-bottom: var(--colour-light-dark) solid 1px;
         }
     }
 }
+
