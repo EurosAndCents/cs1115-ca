@@ -1,0 +1,72 @@
+body {
+    background-color: var(--colour-light-dark);
+
+    & h1 {
+        color: var(--colour-light-base);
+        margin-bottom: 50px;
+    }
+}
+
+nav {
+    padding-top: 50px;
+    padding-bottom: 400px;
+
+    background-color: var(--colour-light-base);
+    background-image: url("img/bckg.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100%;
+
+    & a {
+        color: white;
+        background-color: var(--colour-highlight);
+        &:hover {
+            background-color: var(--colour-secondary)
+        }
+    }
+}
+
+/* att: https://www.w3schools.com/css/css3_animations.asp */
+@keyframes console_underscore {
+    0% {opacity: 1}
+    49% {opacity: 1}
+    50% {opacity: 0}
+    100% {opacity: 0}
+}
+main {
+    /* console */
+    & ul {
+        align-self: start;
+        margin-top: 150px;
+
+        display: grid;
+        grid-template-columns: auto 1fr;
+
+        color: white;
+        font-size: 0.6em;
+        font-family: var(--font-terminal);
+        font-weight: normal;
+
+        width: 70%;
+        min-width: 300px;
+        margin: 0 auto;
+        padding: 1em;
+
+        background-color: var(--colour-dark);
+        border-radius: 10px;
+
+        & li::marker {
+            content: "";
+        }
+        & li:nth-child(odd) {
+            margin-right: 1em;
+        }
+        & span { /* typing animation at the end of the last piece of text!! */
+            animation: console_underscore 1s linear infinite;
+        }
+        & a {
+            text-decoration: underline;
+            color: white;
+        }
+    }
+}

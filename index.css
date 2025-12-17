@@ -9,6 +9,7 @@ body {
 
     background-color: var(--colour-light-dark);
 
+    /* grid areas */
     & header {
         grid-area: top;
     }
@@ -72,10 +73,6 @@ header {
 
         display: grid;
         grid-template-columns: auto 1fr;
-        grid-template-areas: 
-            "caret1 console1"
-            "caret2 console2"
-        ;
 
         color: white;
         font-size: 0.6em;
@@ -92,19 +89,8 @@ header {
         & li::marker {
             content: "";
         }
-        & li:first-child {
-            grid-area: caret1;
+        & li:nth-child(odd) {
             margin-right: 1em;
-        }
-        & li:nth-child(2) {
-            grid-area: console1;
-        }
-        & li:nth-child(3) {
-            grid-area: caret2;
-            margin-right: 1em;
-        }
-        & li:last-child {
-            grid-area: console2;
         }
         & span { /* typing animation at the end of the last piece of text!! */
             animation: console_underscore 1s linear infinite;
@@ -116,7 +102,7 @@ main {
     background-color: var(--colour-light-dark);
 
     & h1 {
-        color: white;
+        color: var(--colour-light-base);
     }
 }
 
